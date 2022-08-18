@@ -1,0 +1,22 @@
+body{
+    background: linear-gradient(to bottom, rgb(108, 176, 200), rgb(255, 255, 255) 50%, rgb(108, 176, 200)); 
+}
+
+.logo{
+    height: 100px;
+}
+.card-img-top{
+    padding: 10px;
+    height: 520px;
+}
+
+.card{
+    width: 220px;
+    
+}
+
+
+
+
+
+
