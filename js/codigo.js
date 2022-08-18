@@ -19,6 +19,28 @@ class elementoCarrito{
 const productos = []
 const carritoCompras = [];
 
+//modo
+let modo;
+if(localStorage.getItem("modo")){
+    modo=localStorage.getItem("modo");
+}else{
+    modo="light";
+}
+let boton=document.getElementById("mode");
+document.body.className=modo;
+
+localStorage.setItem("modo", modo);
+
+boton.onclick=()=>{
+    if(modo=="light"){
+        document.body.className="dark";
+        modo="dark";
+    }else{
+        document.body.className="light";
+        modo="light";
+    }
+    localStorage.setItem("modo", modo);
+}
 
 //elementos a referneciar
 
@@ -56,7 +78,6 @@ function dibujarCatalogo(){
 }
 
 
-
 function crearCartas(producto){
     let botonCartas = document.createElement("button");
     botonCartas.className="btn btn-success";
@@ -83,8 +104,6 @@ function crearCartas(producto){
     carta.append(cuerpoCartas);
 
     botonCartas.onclick=(e) =>{
-        
-
         let elementoEnCarro = new elementoCarrito(producto, 1)
         carritoCompras.push(elementoEnCarro);
         dibujarCarrito();

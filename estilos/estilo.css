@@ -1,7 +1,9 @@
-body{
+.light{
     background: linear-gradient(to bottom, rgb(108, 176, 200), rgb(255, 255, 255) 50%, rgb(108, 176, 200)); 
 }
-
+.dark{
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(89, 89, 89) 50%, rgb(0, 0, 0)); 
+}
 .logo{
     height: 100px;
 }
