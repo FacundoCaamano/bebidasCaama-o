@@ -47,13 +47,29 @@ boton.onclick=()=>{
 const contenedorProducto = document.querySelector("#contenedor-productos")
 const contenedorCarrito = document.querySelector("#items")
 const contenedorCarritoFooter = document.querySelector("#footer")
-
+const btnEdad=document.getElementById("btnEdad")
+const contenedorEdad=document.getElementById("contenedor-edad")
 //ejecucion de funciones
+
+btnEdad.onclick=()=>{
+    mayorDeEdad();
+}
+function esMayor() {
 cargaProductos();
 dibujarCatalogo();
+}
+
 
 //declaracion de funciones
 
+function mayorDeEdad(){
+    let noValido=document.getElementById("noValido")
+    let edad=document.getElementById("edad").value;
+    edad > 17 ? esMayor() : esMenor();
+}
+function esMenor(){
+    contenedorEdad.innerHTML='<h3 id="noValido">Necesita ser mayor de edad para comprar</h3>'
+}
 function cargaProductos() {
     productos.push(new Producto(1, 'Agua', 120, './img/agua.jpg'));
     productos.push(new Producto(2, 'Andes', 480,'./img/andes.png' ));
