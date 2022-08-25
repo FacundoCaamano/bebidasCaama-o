@@ -1,3 +1,4 @@
+AOS.init();
 class Producto{
     constructor(id, nombre, precio, img){
         this.id = id;
@@ -63,12 +64,12 @@ dibujarCatalogo();
 //declaracion de funciones
 
 function mayorDeEdad(){
-    let noValido=document.getElementById("noValido")
+    
     let edad=document.getElementById("edad").value;
     edad > 17 ? esMayor() : esMenor();
 }
 function esMenor(){
-    contenedorEdad.innerHTML='<h3 id="noValido">Necesita ser mayor de edad para comprar</h3>'
+    contenedorEdad.innerHTML='<h3 >Necesita ser mayor de edad para comprar</h3>'
 }
 function cargaProductos() {
     productos.push(new Producto(1, 'Agua', 120, './img/agua.jpg'));
@@ -76,7 +77,7 @@ function cargaProductos() {
     productos.push(new Producto(3, 'Coca Cola', 480,'./img/cocacola.png'));
     productos.push(new Producto(4, 'Dr Lemon', 450,'./img/drlemon.jpg'));
     productos.push(new Producto(5, 'Fanta', 120,'./img/fanta.png'));
-    productos.push(new Producto(6, 'Fernet Branca', 250,'./img/fernet-branca-1-litro.jpg'));
+    productos.push(new Producto(6, 'Fernet Branca', 1250,'./img/fernet-branca-1-litro.jpg'));
     productos.push(new Producto(7, 'heineken', 250,'./img/heineken.png'));
     productos.push(new Producto(8, 'Pepsi', 320,'./img/pepsi.jpeg'));
     productos.push(new Producto(9, 'Quilmes', 320,'./img/quilmes.jpg'));
@@ -123,6 +124,28 @@ function crearCartas(producto){
         let elementoEnCarro = new elementoCarrito(producto, 1)
         carritoCompras.push(elementoEnCarro);
         dibujarCarrito();
+
+        swal({
+            title: "¡Producto agregado!",
+            text: `se agrego al carrito :${producto.nombre}.`,
+            icon: "success",
+            buttons: 
+                {cerrar: {
+                    text: "Cerrar",
+                    value: false
+                    },
+                carrito: {
+                    text: "Ir a carrito",
+                    value: true
+                }
+            }
+        }).then((irAlCarro) => 
+        {if(irAlCarro) {
+            const myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {keyboard: true});
+            const modalToggle = document.getElementById('toggleMyModal');myModal.show(modalToggle);
+        }
+    });
+
     }
 
     return carta;
