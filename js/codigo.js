@@ -50,6 +50,7 @@ const contenedorCarrito = document.querySelector("#items")
 const contenedorCarritoFooter = document.querySelector("#footer")
 const btnEdad=document.getElementById("btnEdad")
 const contenedorEdad=document.getElementById("contenedor-edad")
+const precioDolar=document.getElementById("precioDolar")
 //ejecucion de funciones
 
 btnEdad.onclick=()=>{
@@ -73,15 +74,15 @@ function esMenor(){
 }
 function cargaProductos() {
     productos.push(new Producto(1, 'Agua', 120, './img/agua.jpg'));
-    productos.push(new Producto(2, 'Andes', 480,'./img/andes.png' ));
-    productos.push(new Producto(3, 'Coca Cola', 480,'./img/cocacola.png'));
-    productos.push(new Producto(4, 'Dr Lemon', 450,'./img/drlemon.jpg'));
-    productos.push(new Producto(5, 'Fanta', 120,'./img/fanta.png'));
-    productos.push(new Producto(6, 'Fernet Branca', 1250,'./img/fernet-branca-1-litro.jpg'));
-    productos.push(new Producto(7, 'heineken', 250,'./img/heineken.png'));
-    productos.push(new Producto(8, 'Pepsi', 320,'./img/pepsi.jpeg'));
-    productos.push(new Producto(9, 'Quilmes', 320,'./img/quilmes.jpg'));
-    productos.push(new Producto(10, 'stella', 420,'./img/stella.jpg'));
+    productos.push(new Producto(2, 'Andes', 16,'./img/andes.png' ));
+    productos.push(new Producto(3, 'Coca Cola', 17,'./img/cocacola.png'));
+    productos.push(new Producto(4, 'Dr Lemon', 15,'./img/drlemon.jpg'));
+    productos.push(new Producto(5, 'Fanta', 5,'./img/fanta.png'));
+    productos.push(new Producto(6, 'Fernet Branca', 40,'./img/fernet-branca-1-litro.jpg'));
+    productos.push(new Producto(7, 'heineken', 10,'./img/heineken.png'));
+    productos.push(new Producto(8, 'Pepsi', 11,'./img/pepsi.jpeg'));
+    productos.push(new Producto(9, 'Quilmes', 11,'./img/quilmes.jpg'));
+    productos.push(new Producto(10, 'stella', 14,'./img/stella.jpg'));
 }
 
 function dibujarCatalogo(){
@@ -103,8 +104,8 @@ function crearCartas(producto){
     let cuerpoCartas = document.createElement("div");
     cuerpoCartas.className="card-body";
     cuerpoCartas.innerHTML = `
-                              <h5>${producto.nombre}</h5>
-                              <p>${producto.precio}</p>  
+                              <h5>${producto.nombre} x10</h5>
+                              <p>U$ ${producto.precio}</p>  
                               `;
     cuerpoCartas.append(botonCartas);
 
@@ -165,8 +166,8 @@ function dibujarCarrito(){
                                     <td>${elemento.producto.id}</td>
                                     <td>${elemento.producto.nombre}</td>
                                     <td><input id="unidades${elemento.producto.id}"type="number" value="${elemento.cantidad}"min="1" max="100" step="1" /></td>
-                                    <td>${elemento.producto.precio}</td>
-                                    <td>${elemento.producto.precio*elemento.cantidad}</td>`;
+                                    <td>U$ ${elemento.producto.precio}</td>
+                                    <td>U$ ${elemento.producto.precio*elemento.cantidad}</td>`;
                                     
                                     precioTotal+=elemento.producto.precio*elemento.cantidad;
 
@@ -185,17 +186,19 @@ function dibujarCarrito(){
         contenedorCarritoFooter.innerHTML = `<th scope="row" colspan="5">Carrito vacío!</th>
         </tr>`;
     } else{
-        contenedorCarritoFooter.innerHTML = `<th scope="row" colspan="5">Precio total: ${precioTotal}</th>
+        contenedorCarritoFooter.innerHTML = `<th scope="row" colspan="5">Precio total:U$ ${precioTotal}</th>
         </tr>`;
     }
 
 }
 
-
-
-
-
-
+//api del precio del dolar
+fetch('https://api-dolar-argentina.herokuapp.com/api/dolarblue')
+    .then( (resp) => resp.json ())
+    .then( (data)=>{
+        precioDolar.innerHTML=`<h3 >Nuestro precios estan en dolares, el valor actual de U$ 1 es de $${data.venta}</h3>`
+    })
+        
 
 
 

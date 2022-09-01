@@ -1,3 +1,6 @@
+body{
+    min-height: 1000px;
+}
 .light{
     background: linear-gradient(to bottom, rgb(108, 176, 200), rgb(255, 255, 255) 50%, rgb(108, 176, 200)); 
 }
@@ -23,5 +26,8 @@
     margin: 10px;
 }
 
+#precioDolar{
+    margin: 10px;
+}
 
 
