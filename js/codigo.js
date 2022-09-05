@@ -51,6 +51,7 @@ const contenedorCarritoFooter = document.querySelector("#footer")
 const btnEdad=document.getElementById("btnEdad")
 const contenedorEdad=document.getElementById("contenedor-edad")
 const precioDolar=document.getElementById("precioDolar")
+const btnVaciar=document.getElementById("vaciar-carro")
 //ejecucion de funciones
 
 btnEdad.onclick=()=>{
@@ -174,6 +175,7 @@ function dibujarCarrito(){
                                     <td>U$ ${elemento.producto.precio}</td>
                                     <td>U$ ${elemento.producto.precio*elemento.cantidad}</td>`;
                                     
+                                    
                                     precioTotal+=elemento.producto.precio*elemento.cantidad;
 
                                     contenedorCarrito.append(renglonCarro);
@@ -184,19 +186,28 @@ function dibujarCarrito(){
                                        elemento.cantidad = nuevaCantidad;
                                        dibujarCarrito();
                                     })
+                                    
         }
+        
     );
     
     if(carritoCompras.length == 0){
         contenedorCarritoFooter.innerHTML = `<th scope="row" colspan="5">Carrito vacío!</th>
         </tr>`;
+        return;
     } else{
         contenedorCarritoFooter.innerHTML = `<th scope="row" colspan="5">Precio total:U$ ${precioTotal}</th>
         </tr>`;
     }
-
+    
 }
 
+    
+//vaciar carro
+    btnVaciar.onclick=()=>{
+    carritoCompras.splice(0, carritoCompras.length);
+    dibujarCarrito()
+}
 //api del precio del dolar
 fetch('https://api-dolar-argentina.herokuapp.com/api/dolarblue')
     .then( (resp) => resp.json ())
