@@ -73,7 +73,7 @@ function esMenor(){
     contenedorEdad.innerHTML='<h3 >Necesita ser mayor de edad para comprar</h3>'
 }
 function cargaProductos() {
-    productos.push(new Producto(1, 'Agua', 120, './img/agua.jpg'));
+    productos.push(new Producto(1, 'Schneider', 14, './img/schneider.png'));
     productos.push(new Producto(2, 'Andes', 16,'./img/andes.png' ));
     productos.push(new Producto(3, 'Coca Cola', 17,'./img/cocacola.png'));
     productos.push(new Producto(4, 'Dr Lemon', 15,'./img/drlemon.jpg'));
@@ -83,6 +83,11 @@ function cargaProductos() {
     productos.push(new Producto(8, 'Pepsi', 11,'./img/pepsi.jpeg'));
     productos.push(new Producto(9, 'Quilmes', 11,'./img/quilmes.jpg'));
     productos.push(new Producto(10, 'stella', 14,'./img/stella.jpg'));
+    productos.push(new Producto(11, 'Corona', 15,'./img/corona.png'));
+    productos.push(new Producto(12, 'Budweiser', 14,'./img/budweiser.jpg'));
+    productos.push(new Producto(13, 'Patagonia', 14,'./img/patagonia.png'));
+    productos.push(new Producto(14, 'Imperial Ipa', 15,'./img/imperial.jpg'));
+    productos.push(new Producto(15, 'Iguana', 13,'./img/iguana.png'));
 }
 
 function dibujarCatalogo(){
