@@ -52,6 +52,9 @@ const btnEdad=document.getElementById("btnEdad")
 const contenedorEdad=document.getElementById("contenedor-edad")
 const precioDolar=document.getElementById("precioDolar")
 const btnVaciar=document.getElementById("vaciar-carro")
+const formulario=document.getElementById("formulario")
+const btnFormulario=document.getElementById("btnFormulario")
+const direccionAEnviar=document.getElementById("direccionAEnviar")
 //ejecucion de funciones
 
 btnEdad.onclick=()=>{
@@ -61,9 +64,32 @@ function esMayor() {
 cargaProductos();
 dibujarCatalogo();
 }
-
-
+btnFormulario.onclick=()=>{
+    direccion();
+}
 //declaracion de funciones
+
+function direccion(){
+    let provincia=document.getElementById("provincia").value;
+    let ciudadOBarrio=document.getElementById("ciudad/barrio").value
+    let calle=document.getElementById("calle").value;
+    direccionAEnviar.innerHTML=`
+                                <table class="table">
+                                <tr>
+                                <th scope="col">Dirreccion de envio</th>
+                                </tr>
+                                <tr>
+                                <td >Provincia: ${provincia}</td>
+                                </tr>
+                                <tr>
+                                <td >Ciudad/Barrio: ${ciudadOBarrio}</td>
+                                </tr>
+                                <tr>
+                                <td >calle: ${calle}</td>
+                                </tr>
+                                </table>`
+    
+}
 
 function mayorDeEdad(){
     
@@ -162,7 +188,6 @@ function crearCartas(producto){
 function dibujarCarrito(){
     contenedorCarrito.innerHTML ="";
 
-
     let precioTotal = 0;
 
     carritoCompras.forEach(
@@ -188,6 +213,7 @@ function dibujarCarrito(){
                                     })
                                     
         }
+
         
     );
     
@@ -201,8 +227,11 @@ function dibujarCarrito(){
     }
     
 }
+//formulario
+//formulario.innerHTML =` `;
 
-    
+
+
 //vaciar carro
     btnVaciar.onclick=()=>{
     carritoCompras.splice(0, carritoCompras.length);
