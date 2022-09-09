@@ -55,10 +55,14 @@ const contenedorEdad=document.getElementById("contenedor-edad")
 const precioDolar=document.getElementById("precioDolar")
 const btnVaciar=document.getElementById("vaciar-carro")
 const formulario=document.getElementById("formulario")
-const btnFormulario=document.getElementById("btnFormulario")
 const direccionAEnviar=document.getElementById("direccionAEnviar")
 const btnComprar=document.getElementById("btnComprar")
+
 //ejecucion de funciones
+btnComprar.onclick=()=>{
+    terminarCompra()
+   
+}
 
 btnEdad.onclick=()=>{
     mayorDeEdad();
@@ -67,40 +71,15 @@ function esMayor() {
 cargaProductos();
 dibujarCatalogo();
 }
-btnFormulario.onclick=()=>{
-    direccion();
-}
+
+
 dibujarCarrito()
+
+
 //declaracion de funciones
 
-function direccion(){
-    let provincia=document.getElementById("provincia").value;
-    let ciudadOBarrio=document.getElementById("ciudad/barrio").value
-    let calle=document.getElementById("calle").value;
-    direccionAEnviar.innerHTML=`
-                                <table class="table">
-                                <tr>
-                                <th scope="col">Dirreccion de envio</th>
-                                </tr>
-                                <tr>
-                                <td >Provincia: ${provincia}</td>
-                                </tr>
-                                <tr>
-                                <td >Ciudad/Barrio: ${ciudadOBarrio}</td>
-                                </tr>
-                                <tr>
-                                <td >calle: ${calle}</td>
-                                </tr>
-                                </table>`;      
-                                
-                                    swal({
-                                        title: "compra realizada con exito!!",
-                                        text: `Su pedido se enviara a${provincia}`,
-                                        icon: "success",
-                                        button: "Aww yiss!",
-                                      });
-                                        
-}
+
+
 
 function mayorDeEdad(){
     
@@ -241,7 +220,32 @@ function dibujarCarrito(){
     
 }
 
-
+function terminarCompra(){
+    let provincia=document.getElementById("provincia").value;
+    let ciudadOBarrio=document.getElementById("ciudad/barrio").value
+    let calle=document.getElementById("calle").value;
+    direccionAEnviar.innerHTML=`
+                                <table class="table">
+                                <tr>
+                                <th scope="col">Su pedido se envio</th>
+                                </tr>
+                                <tr>
+                                <td >Provincia: ${provincia}</td>
+                                </tr>
+                                <tr>
+                                <td >Ciudad/Barrio: ${ciudadOBarrio}</td>
+                                </tr>
+                                <tr>
+                                <td >calle: ${calle}</td>
+                                </tr>
+                                </table>`;   
+                                swal({
+                                    title: "compra realizada con exito!!",
+                                    text: `Su pedido se enviara a: ${provincia} ${ciudadOBarrio}  ${calle}  `,
+                                    icon: "success",
+                                    button: "ok",
+                                });
+}
 
 
 
