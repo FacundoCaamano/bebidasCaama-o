@@ -18,7 +18,9 @@ class elementoCarrito{
 
 //arreglos de productos y carrito
 const productos = []
-const carritoCompras = [];
+const carritoCompras = JSON.parse(localStorage.getItem("carrito"))||[];
+
+
 
 //modo
 let modo;
@@ -55,6 +57,7 @@ const btnVaciar=document.getElementById("vaciar-carro")
 const formulario=document.getElementById("formulario")
 const btnFormulario=document.getElementById("btnFormulario")
 const direccionAEnviar=document.getElementById("direccionAEnviar")
+const btnComprar=document.getElementById("btnComprar")
 //ejecucion de funciones
 
 btnEdad.onclick=()=>{
@@ -67,6 +70,7 @@ dibujarCatalogo();
 btnFormulario.onclick=()=>{
     direccion();
 }
+dibujarCarrito()
 //declaracion de funciones
 
 function direccion(){
@@ -87,8 +91,15 @@ function direccion(){
                                 <tr>
                                 <td >calle: ${calle}</td>
                                 </tr>
-                                </table>`
-    
+                                </table>`;      
+                                
+                                    swal({
+                                        title: "compra realizada con exito!!",
+                                        text: `Su pedido se enviara a${provincia}`,
+                                        icon: "success",
+                                        button: "Aww yiss!",
+                                      });
+                                        
 }
 
 function mayorDeEdad(){
@@ -178,7 +189,8 @@ function crearCartas(producto){
             const modalToggle = document.getElementById('toggleMyModal');myModal.show(modalToggle);
         }
     });
-
+    localStorage.setItem("carrito",JSON.stringify(carritoCompras));
+    
     }
 
     return carta;
@@ -199,22 +211,23 @@ function dibujarCarrito(){
                                     <td><input id="unidades${elemento.producto.id}"type="number" value="${elemento.cantidad}"min="1" max="100" step="1" /></td>
                                     <td>U$ ${elemento.producto.precio}</td>
                                     <td>U$ ${elemento.producto.precio*elemento.cantidad}</td>`;
-                                    
+                                     
                                     
                                     precioTotal+=elemento.producto.precio*elemento.cantidad;
-
+                                    
                                     contenedorCarrito.append(renglonCarro);
                                     let inputCantidad = document.getElementById(`unidades${elemento.producto.id}`)
-
-                                    inputCantidad.addEventListener("change", (e)=> {
-                                       let nuevaCantidad = e.target.value;
-                                       elemento.cantidad = nuevaCantidad;
-                                       dibujarCarrito();
-                                    })
                                     
-        }
-
-        
+                                    inputCantidad.addEventListener("change", (e)=> {
+                                        let nuevaCantidad = e.target.value;
+                                        elemento.cantidad = nuevaCantidad;
+                                        dibujarCarrito();
+                                        
+                                    })
+                                      
+                                }
+                                
+                                                       
     );
     
     if(carritoCompras.length == 0){
@@ -227,8 +240,8 @@ function dibujarCarrito(){
     }
     
 }
-//formulario
-//formulario.innerHTML =` `;
+
+
 
 
 
@@ -236,6 +249,7 @@ function dibujarCarrito(){
     btnVaciar.onclick=()=>{
     carritoCompras.splice(0, carritoCompras.length);
     dibujarCarrito()
+    localStorage.setItem("carrito",JSON.stringify(carritoCompras));
 }
 //api del precio del dolar
 fetch('https://api-dolar-argentina.herokuapp.com/api/dolarblue')

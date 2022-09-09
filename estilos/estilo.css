@@ -33,3 +33,7 @@ body{
 .direcc{
     display: block;
 }
+
+footer{
+    border: 5px groove rgb(128, 184, 218);
+}
