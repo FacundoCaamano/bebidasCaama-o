@@ -20,8 +20,7 @@ class elementoCarrito{
 const productos = []
 const carritoCompras = JSON.parse(localStorage.getItem("carrito"))||[];
 
-
-
+let dolarVenta=JSON.parse(localStorage.getItem("dolar"))||[];
 //modo
 let modo;
 if(localStorage.getItem("modo")){
@@ -178,22 +177,25 @@ function crearCartas(producto){
 
 function dibujarCarrito(){
     contenedorCarrito.innerHTML ="";
-
+    
     let precioTotal = 0;
-
+    
     carritoCompras.forEach(
         (elemento)=>{
             let renglonCarro = document.createElement("tr");
             renglonCarro.innerHTML=`
                                     <td>${elemento.producto.id}</td>
                                     <td>${elemento.producto.nombre}</td>
-                                    <td><input id="unidades${elemento.producto.id}"type="number" value="${elemento.cantidad}"min="1" max="100" step="1" /></td>
+                                    <td><input id="unidades${elemento.producto.id}"type="number" value="${elemento.cantidad}"min="1" max="100" step="1" />  Recordar que las cantidades vienen de a 10</td>
                                     <td>U$ ${elemento.producto.precio}</td>
-                                    <td>U$ ${elemento.producto.precio*elemento.cantidad}</td>`;
+                                    <td>U$ ${elemento.producto.precio*elemento.cantidad}</td>
+                                    <td>AR$ ${elemento.producto.precio*elemento.cantidad*dolarVenta}</td>
+                                    `;
                                      
                                     
                                     precioTotal+=elemento.producto.precio*elemento.cantidad;
                                     
+
                                     contenedorCarrito.append(renglonCarro);
                                     let inputCantidad = document.getElementById(`unidades${elemento.producto.id}`)
                                     
@@ -203,7 +205,6 @@ function dibujarCarrito(){
                                         dibujarCarrito();
                                         
                                     })
-                                      
                                 }
                                 
                                                        
@@ -214,7 +215,7 @@ function dibujarCarrito(){
         </tr>`;
         return;
     } else{
-        contenedorCarritoFooter.innerHTML = `<th scope="row" colspan="5">Precio total:U$ ${precioTotal}</th>
+        contenedorCarritoFooter.innerHTML = `<th scope="row" colspan="5">Precio total:U$ ${precioTotal} AR$ ${precioTotal*dolarVenta}</th>
         </tr>`;
     }
     
@@ -224,44 +225,57 @@ function terminarCompra(){
     let provincia=document.getElementById("provincia").value;
     let ciudadOBarrio=document.getElementById("ciudad/barrio").value
     let calle=document.getElementById("calle").value;
-    direccionAEnviar.innerHTML=`
-                                <table class="table">
-                                <tr>
-                                <th scope="col">Su pedido se envio</th>
-                                </tr>
-                                <tr>
-                                <td >Provincia: ${provincia}</td>
-                                </tr>
-                                <tr>
-                                <td >Ciudad/Barrio: ${ciudadOBarrio}</td>
-                                </tr>
-                                <tr>
-                                <td >calle: ${calle}</td>
-                                </tr>
-                                </table>`;   
-                                swal({
-                                    title: "compra realizada con exito!!",
-                                    text: `Su pedido se enviara a: ${provincia} ${ciudadOBarrio}  ${calle}  `,
-                                    icon: "success",
-                                    button: "ok",
-                                });
+      
+                                if(carritoCompras.length == 0){
+                                    swal("Su carrito esta vacio")
+                                }else if(provincia.length==0||ciudadOBarrio.length==0||calle.length==0){
+                                    swal("Debe completar su direccion")
+                                }
+                                else{
+                                    swal({
+                                        title: "compra realizada con exito!!",
+                                        text: `Su pedido se enviara a: ${provincia} ${ciudadOBarrio}  ${calle}  `,
+                                        icon: "success",
+                                        button: "ok",
+                                        });
+                                        
+                                    direccionAEnviar.innerHTML=`
+                                        <table class="table">
+                                        <tr>
+                                        <th scope="col">Su pedido se envio</th>
+                                        </tr>
+                                        <tr>
+                                        <td >Provincia: ${provincia}</td>
+                                        </tr>
+                                        <tr>
+                                        <td >Ciudad/Barrio: ${ciudadOBarrio}</td>
+                                        </tr>
+                                        <tr>
+                                        <td >calle: ${calle}</td>
+                                        </tr>
+                                        </table>`; }
+
 }
 
 
 
 //vaciar carro
-    btnVaciar.onclick=()=>{
+btnVaciar.onclick=()=>{
     carritoCompras.splice(0, carritoCompras.length);
     dibujarCarrito()
     localStorage.setItem("carrito",JSON.stringify(carritoCompras));
 }
+
 //api del precio del dolar
 fetch('https://api-dolar-argentina.herokuapp.com/api/dolarblue')
     .then( (resp) => resp.json ())
     .then( (data)=>{
         precioDolar.innerHTML=`<h3 >Nuestro precios estan en dolares, el valor actual de U$ 1 es de $${data.venta}</h3>`
+        dolarVenta=data.venta
+        localStorage.setItem("dolar",JSON.stringify(dolarVenta));
+        ;
     })
-        
+    
 
 
 
