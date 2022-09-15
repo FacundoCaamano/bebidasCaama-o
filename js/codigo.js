@@ -271,10 +271,22 @@ btnVaciar.onclick=()=>{
 }
 
 
-infoProductos=document.getElementById("productosInfo")
 
-
-
+function obtenerJsonLocal(){
+    const URLJSON="infoproductos.json"
+    fetch(URLJSON)
+    .then( resp => resp.json())
+    .then( data => {
+        const info=data.infoProductos
+        info.forEach(infoProducto => {
+            document.getElementById("productosInfo").innerHTML+=`<h2>${data.infoProductos[0].nombre}</h2>
+            <img src="${data.infoProductos[0].foto}" alt="">`
+            
+        });
+        
+    })
+}
+obtenerJsonLocal()
 
 
 
