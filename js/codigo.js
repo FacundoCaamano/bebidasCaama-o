@@ -21,6 +21,7 @@ const productos = []
 const carritoCompras = JSON.parse(localStorage.getItem("carrito"))||[];
 
 let dolarVenta=JSON.parse(localStorage.getItem("dolar"))||[];
+
 //modo
 let modo;
 if(localStorage.getItem("modo")){
@@ -56,6 +57,9 @@ const btnVaciar=document.getElementById("vaciar-carro")
 const formulario=document.getElementById("formulario")
 const direccionAEnviar=document.getElementById("direccionAEnviar")
 const btnComprar=document.getElementById("btnComprar")
+
+
+
 
 //ejecucion de funciones
 btnComprar.onclick=()=>{
@@ -266,6 +270,17 @@ btnVaciar.onclick=()=>{
     localStorage.setItem("carrito",JSON.stringify(carritoCompras));
 }
 
+
+infoProductos=document.getElementById("productosInfo")
+
+
+
+
+
+
+
+
+
 //api del precio del dolar
 fetch('https://api-dolar-argentina.herokuapp.com/api/dolarblue')
     .then( (resp) => resp.json ())
@@ -280,13 +295,7 @@ fetch('https://api-dolar-argentina.herokuapp.com/api/dolarblue')
 
 
 
-
-
-
-
-
-
-
+    
 
 
 

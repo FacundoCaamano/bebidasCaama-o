@@ -1,0 +1,28 @@
+{
+    "infoProductos":[{
+        "nombre":"juan",
+        "edad":22,
+        "puesto":"camarero",
+        "foto":"./schneide.png"
+    },
+    {
+        "nombre":"juanseto",
+        "edad":222,
+        "puesto":"camarero",
+        "foto":"./schneide.png"
+    },
+    {
+        "nombre":"juansito",
+        "edad":212,
+        "puesto":"camarero",
+        "foto":"./schneide.png"
+    },
+    {
+        "nombre":"juansito",
+        "edad":212,
+        "puesto":"camarero",
+        "foto":"./schneide.png"
+    }
+
+    ]
+}
