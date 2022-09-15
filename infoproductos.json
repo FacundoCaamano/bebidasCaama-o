@@ -1,0 +1,94 @@
+{
+    "infoProductos":[{
+        "nombre":"Schneider",
+        "historia":"Cerveza Schneider es una cerveza de Argentina de Santa Fe. Su planta fue fundada por Otto Schneider en 1931. La cerveza fue adquirida en 1972 por la Cervecería Santa Fe ",
+        "foto":"/logos/Logo-Schneider.jpg"
+        
+    },
+    {
+        "nombre":"Andes",
+        "historia":"Andes Origen (antes, Andes) es una marca de cerveza de origen argentino, fundada en 1921 por el inmigrante Otto Bemberg, oriundo de Alemania. Lleva dicho nombre en honor a la cordillera de los Andes. Es fabricada en la ciudad de Godoy Cruz de la provincia de Mendoza y se comercializa en Cuyo y el noroeste argentino.",
+        "foto":"/logos/andes-logo.png"
+        
+    },
+    {
+        "nombre":"Coca Cola",
+        "historia":"Coca-Cola (conocida comúnmente como Coca en muchos países hispanohablantes; en inglés también conocida como Coke) es una bebida azucarada gaseosa vendida a nivel mundial en tiendas, restaurantes y máquinas expendedoras en más de doscientos países o territorios. ",
+        "foto":"/logos/logoCocaCola.jpg"
+        
+    },
+    {
+        "nombre":"Dr Lemon",
+        "historia":"Dr. Lemon se lanzó en 1998 a competir en una categoría creada y liderada en Argentina por Pronto. Su diferencial es el primer y único coolers a base de limón del mercado argentino. Su síntesis: 5% de jugo de limón, gas y un toque de alcohol (4.1º)",
+        "foto":"/logos/doctor-lemon.png"
+        
+    },
+    {
+        "nombre":"Fanta",
+        "historia":"El nombre de Fanta fue elegido por Joe Knipp, uno de los vendedores de Coca-Cola, basándose en las primeras cinco letras de la palabra alemana “fantasie” que se traduce al español como “fantasía”. Al finalizar la guerra, todo volvió a la normalidad, y los alemanes dejaron de producir la bebida de manzana y suero.",
+        "foto":"/logos/Fanta-logo.png"
+        
+    },
+    {
+        "nombre":"Fernet Branca",
+        "historia":"En 1845, en Milán, Italia, el visionario boticario Bernardino Branca creo una bebida con propiedades singulares, a la que llamó Fernet. Así se inició la historia de una marca que sería reconocida mundialmente: Fernet Branca.",
+        "foto":"/logos/Fernet_Branca_logo.jpg"
+        
+    },
+    {
+        "nombre":"heineken",
+        "historia":"La empresa Heineken fue fundada en 1864 cuando a los 22 años Gerard Adriaan Heineken compró una fábrica de cerveza conocida como De Hooiberg (El Pajar) en Ámsterdam. En 1869 Heineken cambió al uso de la levadura de fermentación baja.",
+        "foto":"/logos/heineken-logo.png"
+        
+    },
+    {
+        "nombre":"Pepsi",
+        "historia":"Pepsi apareció por primera vez en 1893. Su inventor fue el químico farmacéutico Caleb Davis Bradham, que preparaba y vendía la bebida en su botica en la localidad estadounidense de New Bern (Carolina del Norte). En 1902, solicitó el registro de la marca y fundó una empresa con noventa y siete acciones de capital.",
+        "foto":"/logos/Pepsi-logo.jpg"
+        
+    },
+    {
+        "nombre":"Quilmes",
+        "historia":"La Cervecería Quilmes fue fundada en el año 1890 por Don Otto Sebastian Bemberg. El 31 de octubre de 1890 se sirvió el primer chopp y desde entonces, comenzó a venderse con la marca que rescataba el antiguo nombre indígena de la localidad Quilmes.",
+        "foto":"/logos/quilmes.jpg"
+        
+    },
+    {
+        "nombre":"stella",
+        "historia":"Stella Artois es la cerveza belga más conocida y vendida del mundo. Esta lager inspirada en el estilo Pilsner cuenta con una rica herencia que se remonta nada menos que al año 1366 y a su fábrica, que aún perdura en Leuven (Bélgica).",
+        "foto":"/logos/stella-logo.png"
+        
+    },
+    {
+        "nombre":"Corona",
+        "historia":"La Cerveza Corona tiene sus inicios hacía la década de los años 20 puesto que, con la llegada de un grupo de españoles, en 1922, construyen la Cervecería Modelo S.A.; hacía el año 1925 inician la construcción del grupo Cervecero de México llamada Grupo Modelo liderados por los señores Braulio Iriarte como presidente y por Francisco Cilveti, cuya misión era posicionar la cervecería en ciudad de México y sus alrededores.",
+        "foto":"/logos/Corona_Logo.jpg"
+        
+    },
+    {
+        "nombre":"Budweiser",
+        "historia":"El rey de las cervezas, Budweiser fue introducido por Adolphus Busch en 1876 y todavía se elabora con el mismo cuidado y alta calidad, estándares exigentes. Lo que comenzó como una cerveza original de Estados Unidos, hoy es una marca global, disfrutada en 85 países.",
+        "foto":"/logos/budweiser-logo.png"
+        
+    },
+    {
+        "nombre":"Patagonia",
+        "historia":"Patagonia es una marca argentina de cerveza perteneciente a Patagonia Brewing Company. La misma apunta al sector de cervezas “premium”, produciendo variedades poco comunes como la Bohemian Pilsener y la Weisse. Forma parte del grupo Anheuser-Busch InBev (uno de los oligopolios cerveceros a nivel mundial). Empezó como parte de Quilmes, que también es parte del mismo grupo.",
+        "foto":"/logos/patagonia-logo.png"
+        
+    },
+    {
+        "nombre":"Imperial Ipa",
+        "historia":"La historia de esta cerveza se remonta al año 1953, cuando la empresa Quilmes lanzó al mercado la Quilmes Imperial. ​ Originalmente, fue pensada como una cerveza lager (rubia) de categoría mayor que la Quilmes Cristal común. En el año 2002, la cervecería Quilmes fue comprada por la empresa que fabricaba Brahma (Ambev).",
+        "foto":"/logos/imperial-logo.jpg"
+        
+    },
+    {
+        "nombre":"Iguana",
+        "historia":"La historia de esta cerveza se remonta al año 1953, cuando la empresa Quilmes lanzó al mercado la Quilmes Imperial. ​ Originalmente, fue pensada como una cerveza lager (rubia) de categoría mayor que la Quilmes Cristal común. En el año 2002, la cervecería Quilmes fue comprada por la empresa que fabricaba Brahma (Ambev).",
+        "foto":"/logos/iguana-logo.jpg"
+        
+    }
+
+    ]
+}
