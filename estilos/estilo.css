@@ -37,3 +37,9 @@ body{
 footer{
     border: 5px groove rgb(128, 184, 218);
 }
+#productosInfo{
+    margin: 10px;
+}
+#productosInfo img{
+    width: 300px;
+}

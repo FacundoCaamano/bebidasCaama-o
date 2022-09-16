@@ -313,7 +313,26 @@ fetch('https://api-dolar-argentina.herokuapp.com/api/dolarblue')
 
 
 
+   
 
+    function obtenerJsonLocal(){
+        const URLJSON="infoproductos.json"
+        fetch(URLJSON)
+        .then( resp => resp.json())
+        .then( data => {
+            const info=data.infoProductos
+            info.forEach(infoProducto => {
+                document.getElementById("productosInfo").innerHTML+=`<h2>${infoProducto.nombre}</h2>
+                <p>${infoProducto.historia}</p>
+                <img src="${infoProducto.foto}" alt="">
+                `
+                
+            });
+            
+        })
+    }
+    
+    obtenerJsonLocal()
 
 
 
