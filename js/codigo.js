@@ -73,6 +73,8 @@ btnEdad.onclick=()=>{
 function esMayor() {
 cargaProductos();
 dibujarCatalogo();
+obtenerJsonLocal()
+
 }
 
 
@@ -194,6 +196,7 @@ function dibujarCarrito(){
                                     <td>U$ ${elemento.producto.precio}</td>
                                     <td>U$ ${elemento.producto.precio*elemento.cantidad}</td>
                                     <td>AR$ ${elemento.producto.precio*elemento.cantidad*dolarVenta}</td>
+                                    
                                     `;
                                      
                                     
@@ -262,7 +265,6 @@ function terminarCompra(){
 }
 
 
-
 //vaciar carro
 btnVaciar.onclick=()=>{
     carritoCompras.splice(0, carritoCompras.length);
@@ -279,14 +281,16 @@ function obtenerJsonLocal(){
     .then( data => {
         const info=data.infoProductos
         info.forEach(infoProducto => {
-            document.getElementById("productosInfo").innerHTML+=`<h2>${data.infoProductos[0].nombre}</h2>
-            <img src="${data.infoProductos[0].foto}" alt="">`
+            document.getElementById("productosInfo").innerHTML+=`
+                <h2>${data.infoProductos[0].nombre}</h2>
+                <img src="${data.infoProductos[0].foto}"  alt="">
+                <p>${data.infoProductos[0].historia}</p>
+            `
             
         });
         
     })
 }
-obtenerJsonLocal()
 
 
 
@@ -332,7 +336,7 @@ fetch('https://api-dolar-argentina.herokuapp.com/api/dolarblue')
         })
     }
     
-    obtenerJsonLocal()
+    
 
 
 

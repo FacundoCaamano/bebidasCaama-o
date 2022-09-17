@@ -14,41 +14,36 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
     <script defer src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-    
     <link rel="stylesheet" href="./estilos/estilo.css">
     <title>Tienda de bebidas</title>
 </head>
-
 <body>
-
     <nav class="navbar navbar-expand-lg " data-aos="flip-left" data-aos-duration="1000">
         <div class="container-fluid">
             <img class="logo" src="./img/espiritu.png" alt="">
-            <a class="navbar-brand" href="#">Tienda de bebidas</a>
-            <!-- Button trigger modal -->
+            <div class="contenedorMode">
+                <a id="mode"href="#">Modo</a>
+            </div>
+            <a class="btnNav" href="#contenedor-productos">Bebidas</a>
+            <a class="btnNav" href="#productosInfo">Marcas</a>
             <button id="toggleMyModal" type="button" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
                 Carrito <i class="bi bi-bag-check-fill"></i>
             </button>
-
-
-
-        </div>
         </div>
     </nav>
     <div id="precioDolar">
 
     </div>
-    <div id="contenedor-edad" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1000">
-        <h2>Ingrese su edad</h2>
-        <input type="number" id="edad">
-        <input id="btnEdad" type="submit" value="enviar">
+    <div class="divContenedor">
+        <div id="contenedor-edad" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1000">
+            <h2>Ingrese su edad</h2>
+            <input type="number" id="edad">
+            <input id="btnEdad" type="submit" value="enviar">
+        </div>
     </div>
-    
-    <div class="contenedorMode">
-        <a id="mode" class="btn btn-outline-secondary" href="#">Modo</a>
-    </div>
+
+   
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -61,12 +56,12 @@
                     <div class="container">
                         <div>
                             Provincia
-                            <input class="direcc" type="text"  id="provincia" placeholder="">
+                            <input class="direcc" type="text" id="provincia" placeholder="">
                             Ciudad
-                            <input class="direcc" type="text"  id="ciudad/barrio" placeholder="">
+                            <input class="direcc" type="text" id="ciudad/barrio" placeholder="">
                             Calle
-                            <input class="direcc" type="text"  id="calle" placeholder="">
-                            
+                            <input class="direcc" type="text" id="calle" placeholder="">
+
                             <div id="direccionAEnviar">
                             </div>
                         </div>
@@ -81,7 +76,7 @@
                                 </tr>
                             </thead>
                             <tbody id="items">
-                                
+
                             </tbody>
                             <tfoot>
                                 <tr id="footer">
@@ -119,8 +114,15 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script defer src="./js/codigo.js"></script>
-    <footer>
-        <p>Somos de argentina hacemos envios a todo el pais</p>
+    <footer class="footer">
+        <div class="footer__txt">
+            <h3>Somos de argentina hacemos envios a todo el pais</h3>
+        </div>
+        <div class="footer__img">
+            <h3>Metodos de pago</h3>
+            <img src="./img/pagos.png" alt="">
+        </div>
+        
     </footer>
 </body>
 

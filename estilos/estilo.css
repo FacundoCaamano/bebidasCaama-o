@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     min-height: 1000px;
 }
@@ -42,4 +46,69 @@ footer{
 }
 #productosInfo img{
     width: 300px;
+}
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer__txt{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    padding: 10px;
+}
+.footer__img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 40%;
+    margin-left: 100px;
+}
+
+.divContenedor{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+#contenedor-edad{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 5px double rgb(48, 148, 166);
+    border-radius: 5px;
+    padding: 10px;
+    width: 700px;
+    height: 300px;
+    background-color: rgb(193, 248, 247);
+}
+
+#precioDolar{
+    margin: 20px;
+}
+#mode{
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+#mode:hover{
+    font-size: 2rem;
+}
+.btnNav{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+.btnNav:hover{
+    font-size: 2rem;
+}
+#productosInfo{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#productosInfo img{
+    background-color: rgb(255, 255, 255);
 }
