@@ -55,7 +55,6 @@ const contenedorEdad=document.getElementById("contenedor-edad")
 const divContenedor=document.getElementById("divContenedor")
 const precioDolar=document.getElementById("precioDolar")
 const btnVaciar=document.getElementById("vaciar-carro")
-const formulario=document.getElementById("formulario")
 const direccionAEnviar=document.getElementById("direccionAEnviar")
 const btnComprar=document.getElementById("btnComprar")
 
@@ -83,8 +82,6 @@ dibujarCarrito()
 
 
 //declaracion de funciones
-
-
 
 
 function mayorDeEdad(){
@@ -213,8 +210,7 @@ function dibujarCarrito(){
                                         
                                     })
                                 }
-                                
-                                                       
+                                                                               
     );
     
     if(carritoCompras.length == 0){
@@ -265,12 +261,6 @@ function terminarCompra(){
 }
 
 
-//vaciar carro
-btnVaciar.onclick=()=>{
-    carritoCompras.splice(0, carritoCompras.length);
-    dibujarCarrito()
-    localStorage.setItem("carrito",JSON.stringify(carritoCompras));
-}
 
 
 
@@ -282,10 +272,10 @@ function obtenerJsonLocal(){
         const info=data.infoProductos
         info.forEach(infoProducto => {
             document.getElementById("productosInfo").innerHTML+=`
-                <h2>${data.infoProductos[0].nombre}</h2>
-                <img src="${data.infoProductos[0].foto}"  alt="">
-                <p>${data.infoProductos[0].historia}</p>
-                
+            <h2>${data.infoProductos[0].nombre}</h2>
+            <img src="${data.infoProductos[0].foto}"  alt="">
+            <p>${data.infoProductos[0].historia}</p>
+            
             `
             
         });
@@ -295,6 +285,12 @@ function obtenerJsonLocal(){
 
 
 
+//vaciar carro
+btnVaciar.onclick=()=>{
+    carritoCompras.splice(0, carritoCompras.length);
+    dibujarCarrito()
+    localStorage.setItem("carrito",JSON.stringify(carritoCompras));
+}
 
 
 

@@ -9,7 +9,8 @@ body{
     background: linear-gradient(to bottom, rgb(108, 176, 200), rgb(255, 255, 255) 50%, rgb(108, 176, 200)); 
 }
 .dark{
-    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(89, 89, 89) 50%, rgb(0, 0, 0)); 
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(89, 89, 89) 50%, rgb(0, 0, 0));
+    color: white;
 }
 .logo{
     height: 100px;
@@ -40,6 +41,8 @@ body{
 
 footer{
     border: 5px groove rgb(128, 184, 218);
+    display: flex;
+    flex-wrap: wrap;
 }
 #productosInfo{
     margin: 10px;
@@ -47,10 +50,7 @@ footer{
 #productosInfo img{
     width: 300px;
 }
-.footer{
-    display: flex;
-    flex-wrap: wrap;
-}
+
 .footer__txt{
     display: flex;
     align-items: center;
@@ -82,14 +82,14 @@ footer{
     padding: 10px;
     width: 700px;
     height: 300px;
-    background-color: rgb(193, 248, 247);
+    
 }
 
 #precioDolar{
     margin: 20px;
 }
 #mode{
-    color: black;
+    color: rgb(0, 68, 177);
     font-size: 1.5rem;
     text-decoration: none;
 }
@@ -99,7 +99,7 @@ footer{
 .btnNav{
     font-size: 1.5rem;
     text-decoration: none;
-    color: black;
+    
 }
 .btnNav:hover{
     font-size: 2rem;
@@ -108,4 +108,25 @@ footer{
 
 #productosInfo img{
     background-color: rgb(255, 255, 255);
+}
+#mode{
+    background: none;
+}
+
+h5{
+    color: black;
+}
+.card-body p{
+    color: black;
+}
+
+.card-body button{
+    background-color: black;
+}
+.container{
+    color: black;
+}
+
+.modal-footer button{
+    background-color: black;
 }
