@@ -52,6 +52,7 @@ const contenedorCarrito = document.querySelector("#items")
 const contenedorCarritoFooter = document.querySelector("#footer")
 const btnEdad=document.getElementById("btnEdad")
 const contenedorEdad=document.getElementById("contenedor-edad")
+const divContenedor=document.getElementById("divContenedor")
 const precioDolar=document.getElementById("precioDolar")
 const btnVaciar=document.getElementById("vaciar-carro")
 const formulario=document.getElementById("formulario")
@@ -74,7 +75,7 @@ function esMayor() {
 cargaProductos();
 dibujarCatalogo();
 obtenerJsonLocal()
-
+    divContenedor.innerHTML=''
 }
 
 
@@ -192,11 +193,10 @@ function dibujarCarrito(){
             renglonCarro.innerHTML=`
                                     <td>${elemento.producto.id}</td>
                                     <td>${elemento.producto.nombre}</td>
-                                    <td><input id="unidades${elemento.producto.id}"type="number" value="${elemento.cantidad}"min="1" max="100" step="1" />  Recordar que las cantidades vienen de a 10</td>
+                                    <td><input id="unidades${elemento.producto.id}"type="number" value="${elemento.cantidad}"min="1" max="100" step="1" /></td>
                                     <td>U$ ${elemento.producto.precio}</td>
                                     <td>U$ ${elemento.producto.precio*elemento.cantidad}</td>
                                     <td>AR$ ${elemento.producto.precio*elemento.cantidad*dolarVenta}</td>
-                                    
                                     `;
                                      
                                     
@@ -285,6 +285,7 @@ function obtenerJsonLocal(){
                 <h2>${data.infoProductos[0].nombre}</h2>
                 <img src="${data.infoProductos[0].foto}"  alt="">
                 <p>${data.infoProductos[0].historia}</p>
+                
             `
             
         });
@@ -307,17 +308,6 @@ fetch('https://api-dolar-argentina.herokuapp.com/api/dolarblue')
         ;
     })
     
-
-
-
-
-    
-
-
-
-
-
-   
 
     function obtenerJsonLocal(){
         const URLJSON="infoproductos.json"
